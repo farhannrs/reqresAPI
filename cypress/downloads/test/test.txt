@@ -1,0 +1,7 @@
+Scenario: Login with wrong password. 
+
+Given User is on Login Screen
+When user Enter "UserName"
+And  user Enter "Password"
+And user clicks on sbumit button
+Then Should display "UnAuth"
