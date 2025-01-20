@@ -1,19 +1,14 @@
-function valueInSec(sec) {
-    const apiUrl = 'https://reqres.in/api/users?delay={sec}'
-
-    return apiUrl
-}
-
 
 describe('GET /api/users?delay=3 Delayed Response', () => {
 
+const baseUrl = 'https://reqres.in/api/users' 
+const requestUrl = (delay) => `${baseUrl}?delay=${delay}`;
 
- 
 
     it('should return 200 status code after delay', () => {
         cy.request({
             method: 'GET',
-            url: valueInSec(29),
+            url: requestUrl(10),
             failOnStatusCode: false, // Prevent automatic failure on non-2xx status
         }).then((response) => {
             expect(response.status).to.eq(200); // Ensure status is 200 after delay
